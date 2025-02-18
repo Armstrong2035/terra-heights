@@ -20,7 +20,7 @@ const ClickUpForm = () => {
         display: "flex",
         justifyContent: "center",
         mt: 4,
-        bgcolor: "#FCFFF3", // Optional: Set background color for the container
+        bgcolor: "#FCFFF3",
         p: 2,
         borderRadius: "8px",
       }}
@@ -36,14 +36,15 @@ const ClickUpForm = () => {
       >
         <iframe
           className="clickup-embed clickup-dynamic-height"
-          src="https://forms.clickup.com/9018775511/f/8crz5yq-11038/VKYDOYMFQ8HONS0KZ3"
+          src="https://forms.clickup.com/9018775511/f/8crz5yq-11698/UM42MPWCT3GIJPQ2GD"
           width="100%"
           height="600px"
           style={{
             background: "transparent",
             border: "none",
-            borderRadius: "8px", // Optional: Add border-radius for iframe to match design
+            borderRadius: "8px",
           }}
+          onWheel={() => {}} // Added from your provided iframe
         />
       </Paper>
     </Box>
