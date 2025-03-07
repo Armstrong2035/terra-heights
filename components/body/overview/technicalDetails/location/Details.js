@@ -13,7 +13,7 @@ export default function Details() {
     { label: "Unit Types", value: "1, 2, 3 & 4 Bedrooms" },
     { label: "Area Range", value: "690 - 1,331 sq.ft" },
     { label: "Handover Date", value: "Q2 2029" },
-    { label: "Ownership", value: "Freehold" },
+    // { label: "Ownership", value: "Freehold" },
     { label: "Payment Plan", value: "70/30" },
     { label: "Deposit Required", value: "20%" },
   ];
