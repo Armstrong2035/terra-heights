@@ -1,4 +1,5 @@
 import { Manrope } from "next/font/google";
+import Script from "next/script";
 
 export const metadata = {
   title: "The Element at Sobha One",
