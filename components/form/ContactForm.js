@@ -1,204 +1,255 @@
-// "use client";
-// import {
-//   Box,
-//   TextField,
-//   MenuItem,
-//   Button,
-//   Stack,
-//   Typography,
-// } from "@mui/material";
-// import { useState } from "react";
-// import { db } from "@/utils/firebase";
-// import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+// components/form/FirebaseForm.js
+import { useState } from "react";
+import {
+  Box,
+  TextField,
+  Button,
+  Paper,
+  Typography,
+  MenuItem,
+  Snackbar,
+  Alert,
+  CircularProgress,
+  Stack,
+} from "@mui/material";
+import app from "@/utils/firebase"; // Import the default export
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 
-// export default function ContactForm() {
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     email: "",
-//     phone: "",
-//     unitPreference: "",
-//   });
+// Initialize Firestore using the app instance
+const db = getFirestore(app);
 
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-//   const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+const FirebaseForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    unitPreference: "",
+  });
 
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setIsSubmitting(true);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-//     try {
-//       const docRef = await addDoc(collection(db, "leads"), {
-//         ...formData,
-//         createdAt: serverTimestamp(),
-//         status: "new",
-//         source: "website",
-//         project: "Damac Riverside Views",
-//       });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-//       console.log("Document written with ID: ", docRef.id);
+    try {
+      // Add form data to Firestore
+      await addDoc(collection(db, "leads"), {
+        ...formData,
+        createdAt: serverTimestamp(),
+        status: "new",
+        source: "website",
+        project: "Sobha One Element",
+      });
 
-//       // Clear form
-//       setFormData({
-//         name: "",
-//         email: "",
-//         phone: "",
-//         unitPreference: "",
-//       });
-//     } catch (error) {
-//       console.error("Error adding document: ", error);
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
+      // Show success message
+      setSnackbar({
+        open: true,
+        message: "Thank you! Your information has been submitted successfully.",
+        severity: "success",
+      });
 
-//   // Keep your existing return JSX, just update the form onSubmit and add status message
-//   return (
-//     <Box
-//       id="riverside-contact-form"
-//       sx={{
-//         bgcolor: "#1C6658",
-//         p: 4,
-//         borderRadius: 2,
-//         textAlign: "center",
-//       }}
-//     >
-//       <Stack spacing={1} sx={{ mb: 4, color: "white", alignItems: "center" }}>
-//         <Typography variant="h4" sx={{ fontWeight: 500 }}>
-//           Book your unit
-//         </Typography>
-//         <Typography variant="body1">
-//           Fill this form. Your specialist is waiting for you
-//         </Typography>
-//       </Stack>
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        unitPreference: "",
+      });
 
-//       {submitStatus.message && (
-//         <Typography
-//           sx={{
-//             mb: 2,
-//             color: submitStatus.type === "success" ? "#4caf50" : "#f44336",
-//             bgcolor: "white",
-//             p: 1,
-//             borderRadius: 1,
-//           }}
-//         >
-//           {submitStatus.message}
-//         </Typography>
-//       )}
+      // Fire Google Ads conversion tracking after successful form submission
+      // if (typeof window !== "undefined" && window.gtag) {
+      //   window.gtag("event", "conversion", {
+      //     send_to: "AW-16909263453/jTrDCNHE5qYaEN3E-_4-",
+      //   });
+      //   console.log("Google Ads conversion tracking fired");
+      // }
 
-//       <Box
-//         component="form"
-//         onSubmit={handleSubmit}
-//         sx={{
-//           width: "100%",
-//           maxWidth: 400,
-//           mx: "auto",
-//         }}
-//       >
-//         <Stack spacing={3}>
-//           {/* Keep your existing TextField components */}
-//           <TextField
-//             label="Name"
-//             name="name"
-//             value={formData.name}
-//             onChange={handleChange}
-//             required
-//             fullWidth
-//             sx={{
-//               bgcolor: "white",
-//               borderRadius: 1,
-//               "& .MuiOutlinedInput-root": {
-//                 "& fieldset": {
-//                   borderColor: "white",
-//                 },
-//               },
-//             }}
-//           />
+      // Fire Facebook Pixel conversion event after successful form submission
+      // if (typeof window !== "undefined" && window.fbq) {
+      //   window.fbq("track", "Lead");
+      //   console.log("Facebook Pixel conversion event fired");
+      // }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSnackbar({
+        open: true,
+        message:
+          "There was an error submitting your information. Please try again.",
+        severity: "error",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-//           <TextField
-//             label="Email"
-//             name="email"
-//             type="email"
-//             value={formData.email}
-//             onChange={handleChange}
-//             required
-//             fullWidth
-//             sx={{
-//               bgcolor: "white",
-//               borderRadius: 1,
-//               "& .MuiOutlinedInput-root": {
-//                 "& fieldset": {
-//                   borderColor: "white",
-//                 },
-//               },
-//             }}
-//           />
+  const handleSnackbarClose = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
 
-//           <TextField
-//             label="Phone"
-//             name="phone"
-//             value={formData.phone}
-//             onChange={handleChange}
-//             required
-//             fullWidth
-//             sx={{
-//               bgcolor: "white",
-//               borderRadius: 1,
-//               "& .MuiOutlinedInput-root": {
-//                 "& fieldset": {
-//                   borderColor: "white",
-//                 },
-//               },
-//             }}
-//           />
+  return (
+    <Box
+      id="riverside-contact-form"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        mt: 4,
+        bgcolor: "#FCFFF3",
+        p: 2,
+        borderRadius: "8px",
+      }}
+    >
+      <Paper
+        elevation={3}
+        sx={{
+          p: 4,
+          width: "90%",
+          maxWidth: 600,
+          borderRadius: "8px",
+          bgcolor: "#1C6658",
+          color: "white",
+        }}
+      >
+        <Typography variant="h4" align="center" sx={{ mb: 3, fontWeight: 500 }}>
+          Register Your Interest
+        </Typography>
 
-//           <TextField
-//             select
-//             label="Unit Preference"
-//             name="unitPreference"
-//             value={formData.unitPreference}
-//             onChange={handleChange}
-//             required
-//             fullWidth
-//             sx={{
-//               bgcolor: "white",
-//               borderRadius: 1,
-//               "& .MuiOutlinedInput-root": {
-//                 "& fieldset": {
-//                   borderColor: "white",
-//                 },
-//               },
-//             }}
-//           >
-//             <MenuItem value="4-bed">4 Bedroom</MenuItem>
-//             <MenuItem value="5-bed">5 Bedroom</MenuItem>
-//           </TextField>
+        <Typography variant="body1" align="center" sx={{ mb: 4 }}>
+          Fill in your details below and our property specialist will contact
+          you soon
+        </Typography>
 
-//           <Button
-//             type="submit"
-//             variant="contained"
-//             fullWidth
-//             disabled={isSubmitting}
-//             sx={{
-//               bgcolor: "white",
-//               color: "#1C6658",
-//               "&:hover": {
-//                 bgcolor: "rgba(255,255,255,0.9)",
-//               },
-//               py: 1.5,
-//               fontSize: "1.1rem",
-//             }}
-//           >
-//             {isSubmitting ? "Submitting..." : "Submit"}
-//           </Button>
-//         </Stack>
-//       </Box>
-//     </Box>
-//   );
-// }
+        <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
+          <Stack spacing={3}>
+            <TextField
+              label="Full Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              fullWidth
+              variant="outlined"
+              sx={{
+                bgcolor: "white",
+                borderRadius: 1,
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": { borderColor: "white" },
+                },
+              }}
+            />
+
+            <TextField
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              fullWidth
+              sx={{
+                bgcolor: "white",
+                borderRadius: 1,
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": { borderColor: "white" },
+                },
+              }}
+            />
+
+            <TextField
+              label="Phone Number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              fullWidth
+              sx={{
+                bgcolor: "white",
+                borderRadius: 1,
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": { borderColor: "white" },
+                },
+              }}
+            />
+
+            <TextField
+              select
+              label="Unit Preference"
+              name="unitPreference"
+              value={formData.unitPreference}
+              onChange={handleChange}
+              required
+              fullWidth
+              sx={{
+                bgcolor: "white",
+                borderRadius: 1,
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": { borderColor: "white" },
+                },
+              }}
+            >
+              <MenuItem value="4-bed">Studio</MenuItem>
+              <MenuItem value="1-bed">1 Bedroom</MenuItem>
+              <MenuItem value="2-bed">2 Bedroom</MenuItem>
+              <MenuItem value="5-bed">3 + Bedroom</MenuItem>
+            </TextField>
+
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              disabled={isSubmitting}
+              sx={{
+                bgcolor: "white",
+                color: "#1C6658",
+                "&:hover": { bgcolor: "rgba(255,255,255,0.9)" },
+                py: 1.5,
+                fontSize: "1.1rem",
+                mt: 2,
+              }}
+            >
+              {isSubmitting ? (
+                <CircularProgress size={24} sx={{ color: "#1C6658" }} />
+              ) : (
+                "Submit"
+              )}
+            </Button>
+          </Stack>
+        </Box>
+
+        <Snackbar
+          open={snackbar.open}
+          autoHideDuration={6000}
+          onClose={handleSnackbarClose}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Alert
+            onClose={handleSnackbarClose}
+            severity={snackbar.severity}
+            sx={{ width: "100%" }}
+          >
+            {snackbar.message}
+          </Alert>
+        </Snackbar>
+      </Paper>
+    </Box>
+  );
+};
+
+export default FirebaseForm;

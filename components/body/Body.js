@@ -2,8 +2,9 @@
 import Hero from "./hero/Hero";
 import { Box, Divider, Stack, useMediaQuery, useTheme } from "@mui/material"; // Added useTheme here
 import TechnicalDetails from "./overview/technicalDetails/TechnicalDetails";
-import ContactForm from "../form/ContactForm";
+import Form from "../form/ContactForm";
 import ClickUpForm from "../form/ClickupForm";
+import FirebaseForm from "../form/ContactForm";
 // Remove the separate useTheme import
 
 export default function Body({
@@ -26,7 +27,8 @@ export default function Body({
           floorPlanImages={floorPlanImages}
           heroImage={heroImage}
         />
-        <ClickUpForm />
+        {/* <ContactForm /> */}
+        <FirebaseForm />
       </Box>
     </Stack>
   );

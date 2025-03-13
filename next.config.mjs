@@ -7,7 +7,7 @@ const nextConfig = {
       "i.ibb.co",
       "i.postimg.cc",
       "postimg.cc",
-      "damacriverside.subarashirealestate.com",
+      "sobhaoneelement.subarashirealestate.com",
       "res.cloudinary.com",
     ],
   },

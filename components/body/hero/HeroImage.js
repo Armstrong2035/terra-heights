@@ -30,7 +30,7 @@ export default function HeroImage({ heroImage }) {
       >
         <Image
           src={heroImage}
-          alt="Damac riverside interior"
+          alt="Sobha One Element interior"
           width={1920}
           height={1080}
           priority={true}
@@ -120,7 +120,7 @@ export default function HeroImage({ heroImage }) {
           >
             <Image
               src={heroImage}
-              alt="Damac riverside interior"
+              alt="Sobha One Element interior"
               fill
               quality={100}
               priority={true}
