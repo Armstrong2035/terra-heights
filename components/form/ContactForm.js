@@ -74,19 +74,19 @@ const FirebaseForm = () => {
         unitPreference: "",
       });
 
-      // Fire Google Ads conversion tracking after successful form submission
-      // if (typeof window !== "undefined" && window.gtag) {
-      //   window.gtag("event", "conversion", {
-      //     send_to: "AW-16909263453/jTrDCNHE5qYaEN3E-_4-",
-      //   });
-      //   console.log("Google Ads conversion tracking fired");
-      // }
+      //Fire Google Ads conversion tracking after successful form submission
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "conversion", {
+          send_to: "AW-16909263453/jTrDCNHE5qYaEN3E-_4-",
+        });
+        console.log("Google Ads conversion tracking fired");
+      }
 
-      // Fire Facebook Pixel conversion event after successful form submission
-      // if (typeof window !== "undefined" && window.fbq) {
-      //   window.fbq("track", "Lead");
-      //   console.log("Facebook Pixel conversion event fired");
-      // }
+      //Fire Facebook Pixel conversion event after successful form submission
+      if (typeof window !== "undefined" && window.fbq) {
+        window.fbq("track", "Lead");
+        console.log("Facebook Pixel conversion event fired");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       setSnackbar({

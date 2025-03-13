@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Facebook Pixel Code
+        {/* Facebook Pixel Code */}
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
             fbq('init', '1659058738047957');
             fbq('track', 'PageView');
           `}
-        </Script> */}
+        </Script>
       </body>
     </html>
   );
