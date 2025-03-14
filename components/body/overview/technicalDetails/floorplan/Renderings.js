@@ -10,13 +10,7 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
-
-const BEDROOM_TYPES = [
-  { id: "1bed", label: "1 Bedroom", imageIndex: 2 },
-  { id: "2bed", label: "2 Bedrooms", imageIndex: 3 },
-  { id: "3bed", label: "3 Bedrooms", imageIndex: 0 },
-  { id: "4bed", label: "4 Bedrooms", imageIndex: 1 },
-];
+import { floorPlans } from "@/utils/siteConfig";
 
 const buttonStyles = (isActive) => ({
   backgroundColor: isActive ? "#005244" : "transparent",
@@ -35,7 +29,8 @@ export default function Renderings({ images }) {
   // Get the current image based on active type
   const currentImage =
     images[
-      BEDROOM_TYPES.find((type) => type.id === activeType)?.imageIndex || 0
+      floorPlans.bedroomTypes.find((type) => type.id === activeType)
+        ?.imageIndex || 0
     ];
 
   const handleImageClick = () => {
@@ -54,7 +49,7 @@ export default function Renderings({ images }) {
           spacing={2}
           sx={{ p: 2 }}
         >
-          {BEDROOM_TYPES.map((type) => (
+          {floorPlans.bedroomTypes.map((type) => (
             <Button
               key={type.id}
               variant={activeType === type.id ? "contained" : "outlined"}
@@ -171,7 +166,7 @@ export default function Renderings({ images }) {
               borderRadius: "4px",
             }}
           >
-            {BEDROOM_TYPES.map((type) => (
+            {floorPlans.bedroomTypes.map((type) => (
               <Button
                 key={type.id}
                 variant={activeType === type.id ? "contained" : "outlined"}

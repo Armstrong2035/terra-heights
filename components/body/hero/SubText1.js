@@ -1,5 +1,6 @@
 import { mdTypography } from "@/utils/styles";
 import { Typography, Stack, Box, Button } from "@mui/material";
+import { hero } from "@/utils/siteConfig";
 
 export default function SubText1({ isDesktop }) {
   const scrollToForm = () => {
@@ -28,28 +29,17 @@ export default function SubText1({ isDesktop }) {
   };
 
   return (
-    <Stack
-      spacing={isDesktop ? 10 : 3}
-      justifyContent={"center"}
-      // sx={{ border: "1px solid red" }}
-    >
+    <Stack spacing={isDesktop ? 10 : 3} justifyContent={"center"}>
       <Box>
         <Typography sx={isDesktop ? style1.heading : mdTypography.heading32}>
-          {" "}
-          The Element, Sobha One
+          {hero.projectName}
         </Typography>
-        <Typography sx={style1.body}>
-          1, 2, 3, and 5 bedroom apartments
-        </Typography>
+        <Typography sx={style1.body}>{hero.projectTypes}</Typography>
       </Box>
 
       <Box>
         <Typography sx={isDesktop ? style1.body : mdTypography.body16Gray}>
-          Welcome to The Element at Sobha One, an exclusive residential
-          community offering breath-taking views, world-class amenities, and
-          meticulously crafted homes. Inspired by the harmony of nature and
-          urban sophistication, The Element is a sanctuary designed for those
-          who seek elegance and tranquility.
+          {hero.description}
         </Typography>
 
         <Button
@@ -57,7 +47,7 @@ export default function SubText1({ isDesktop }) {
           onClick={scrollToForm}
           sx={{ backgroundColor: "#005244", mt: 3 }}
         >
-          Register Your Interest
+          {hero.ctaText}
         </Button>
       </Box>
     </Stack>
