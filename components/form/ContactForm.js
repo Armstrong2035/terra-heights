@@ -19,6 +19,7 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
+import { addTask } from "@/utils/clickupUtils";
 
 // Initialize Firestore using the app instance
 const db = getFirestore(app);
@@ -56,7 +57,15 @@ const FirebaseForm = () => {
         createdAt: serverTimestamp(),
         status: "new",
         source: "website",
-        project: "Sobha One Element",
+        project: "Palm Jebel Ali Villas",
+      });
+
+      //add form data to clickup
+
+      await fetch("/api/add-task", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
       // Show success message
@@ -74,7 +83,7 @@ const FirebaseForm = () => {
         unitPreference: "",
       });
 
-      //Fire Google Ads conversion tracking after successful form submission
+      // Fire Google Ads conversion tracking after successful form submission
       if (typeof window !== "undefined" && window.gtag) {
         window.gtag("event", "conversion", {
           send_to: "AW-16909263453/jTrDCNHE5qYaEN3E-_4-",
@@ -82,7 +91,7 @@ const FirebaseForm = () => {
         console.log("Google Ads conversion tracking fired");
       }
 
-      //Fire Facebook Pixel conversion event after successful form submission
+      // Fire Facebook Pixel conversion event after successful form submission
       if (typeof window !== "undefined" && window.fbq) {
         window.fbq("track", "Lead");
         console.log("Facebook Pixel conversion event fired");
@@ -106,7 +115,7 @@ const FirebaseForm = () => {
 
   return (
     <Box
-      id="riverside-contact-form"
+      id="palm-jebel-ali-contact-form"
       sx={{
         display: "flex",
         justifyContent: "center",
@@ -204,10 +213,10 @@ const FirebaseForm = () => {
                 },
               }}
             >
-              <MenuItem value="4-bed">Studio</MenuItem>
               <MenuItem value="1-bed">1 Bedroom</MenuItem>
-              <MenuItem value="2-bed">2 Bedroom</MenuItem>
-              <MenuItem value="5-bed">3 + Bedroom</MenuItem>
+              <MenuItem value="2-bed">2 Bedrooms</MenuItem>
+              <MenuItem value="3-bed">3 Bedrooms</MenuItem>
+              <MenuItem value="4-bed">4 Bedrooms</MenuItem>
             </TextField>
 
             <Button
