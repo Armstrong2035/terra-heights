@@ -1,13 +1,8 @@
 import Heading from "./Heading";
 import { Box, Container } from "@mui/material";
-// import one from "../../../../../public/masonry/one.png";
-// import two from "../../../../../public/masonry/two.png";
-// import three from "../../../../../public/masonry/three.png";
-// import four from "../../../../../public/masonry/four.png";
-// import five from "../../../../../public/masonry/five.png";
-// import six from "../../../../../public/masonry/six.png";
 import ImagesLayout from "./ImagesLayout";
 import SmallImageList from "./SmallImageList";
+import { gallery } from "@/utils/siteConfig";
 
 export default function Gallery({ isDesktop, images }) {
   return (

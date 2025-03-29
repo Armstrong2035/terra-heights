@@ -1,32 +1,18 @@
 import { Manrope } from "next/font/google";
 import Script from "next/script";
+import { siteMetadata, analytics } from "@/utils/siteConfig";
 
 export const metadata = {
-  title: "The Element at Sobha One",
-  description:
-    "Experience luxury residential living redefined at The Element, where urban sophistication meets natural harmony in Dubai. Features 1-4 bedroom units with panoramic views.",
-  keywords: [
-    "Sobha Realty",
-    "The Element",
-    "Sobha One",
-    "Dubai luxury apartments",
-    "Dubai real estate",
-    "Ras Al Khor",
-    "luxury residential",
-    "Dubai property",
-    "golf course view apartments",
-    "Dubai Creek view",
-  ],
-
+  title: siteMetadata.title,
+  description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
   icons: {
-    icon: "https://res.cloudinary.com/dulafqaoq/image/upload/t_Favicon/v1739530384/SUBRASHI_2_nex463.png",
-    shortcut:
-      "https://res.cloudinary.com/dulafqaoq/image/upload/t_Favicon/v1739530384/SUBRASHI_2_nex463.png",
-    apple:
-      "https://res.cloudinary.com/dulafqaoq/image/upload/t_Favicon/v1739530384/SUBRASHI_2_nex463.png",
+    icon: siteMetadata.icons.favicon,
+    shortcut: siteMetadata.icons.favicon,
+    apple: siteMetadata.icons.favicon,
     other: {
-      rel: "https://res.cloudinary.com/dulafqaoq/image/upload/t_Favicon/v1739530384/SUBRASHI_2_nex463.png",
-      url: "https://res.cloudinary.com/dulafqaoq/image/upload/t_Favicon/v1739530384/SUBRASHI_2_nex463.png",
+      rel: siteMetadata.icons.favicon,
+      url: siteMetadata.icons.favicon,
     },
   },
 };
@@ -45,17 +31,17 @@ export default function RootLayout({ children }) {
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1659058738047957&ev=PageView&noscript=1"
+            src={`https://www.facebook.com/tr?id=${analytics.facebookPixelId}&ev=PageView&noscript=1`}
             alt=""
           />
         </noscript>
       </head>
-      <body style={{ backgroundColor: "#FCFFF3" }}>
+      <body style={{ backgroundColor: siteMetadata.backgroundColor }}>
         {children}
 
         {/* Google tag (gtag.js) - Direct Implementation */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-16909263453"
+          src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleAnalyticsId}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics-direct" strategy="afterInteractive">
@@ -63,7 +49,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-16909263453');
+            gtag('config', '${analytics.googleAnalyticsId}');
           `}
         </Script>
 
@@ -78,7 +64,7 @@ export default function RootLayout({ children }) {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1659058738047957');
+            fbq('init', '${analytics.facebookPixelId}');
             fbq('track', 'PageView');
           `}
         </Script>

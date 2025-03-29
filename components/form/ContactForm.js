@@ -1,4 +1,4 @@
-// components/form/FirebaseForm.js
+// components/form/ContactForm.js
 import { useState } from "react";
 import {
   Box,
@@ -19,12 +19,13 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
+import { contact, analytics } from "@/utils/siteConfig";
 // import { addTask } from "@/utils/clickupUtils";
 
 // Initialize Firestore using the app instance
 const db = getFirestore(app);
 
-const FirebaseForm = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -52,9 +53,12 @@ const FirebaseForm = () => {
 
     try {
       // Add form data to Firestore
-      await addDoc(collection(db, "leads"), {
+      await addDoc(collection(db, contact.formConfig.defaultCollection), {
         ...formData,
         createdAt: serverTimestamp(),
+        status: contact.formConfig.defaultStatus,
+        source: contact.formConfig.defaultSource,
+        project: contact.formConfig.projectName,
         status: "new",
         source: "website",
         project: "Palm Jebel Ali Villas",
@@ -71,7 +75,7 @@ const FirebaseForm = () => {
       // Show success message
       setSnackbar({
         open: true,
-        message: "Thank you! Your information has been submitted successfully.",
+        message: contact.successMessage,
         severity: "success",
       });
 
@@ -84,24 +88,25 @@ const FirebaseForm = () => {
       });
 
       // Fire Google Ads conversion tracking after successful form submission
+      // Fire Google Ads conversion tracking after successful form submission
       if (typeof window !== "undefined" && window.gtag) {
         window.gtag("event", "conversion", {
-          send_to: "AW-16909263453/jTrDCNHE5qYaEN3E-_4-",
+          send_to: analytics.conversionEvents.googleConversionId,
         });
         console.log("Google Ads conversion tracking fired");
       }
 
       // Fire Facebook Pixel conversion event after successful form submission
+      // Fire Facebook Pixel conversion event after successful form submission
       if (typeof window !== "undefined" && window.fbq) {
-        window.fbq("track", "Lead");
+        window.fbq("track", analytics.conversionEvents.facebookEventName);
         console.log("Facebook Pixel conversion event fired");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
       setSnackbar({
         open: true,
-        message:
-          "There was an error submitting your information. Please try again.",
+        message: contact.errorMessage,
         severity: "error",
       });
     } finally {
@@ -137,18 +142,17 @@ const FirebaseForm = () => {
         }}
       >
         <Typography variant="h4" align="center" sx={{ mb: 3, fontWeight: 500 }}>
-          Register Your Interest
+          {contact.title}
         </Typography>
 
         <Typography variant="body1" align="center" sx={{ mb: 4 }}>
-          Fill in your details below and our property specialist will contact
-          you soon
+          {contact.subtitle}
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
           <Stack spacing={3}>
             <TextField
-              label="Full Name"
+              label={contact.formFields.name}
               name="name"
               value={formData.name}
               onChange={handleChange}
@@ -165,7 +169,7 @@ const FirebaseForm = () => {
             />
 
             <TextField
-              label="Email"
+              label={contact.formFields.email}
               name="email"
               type="email"
               value={formData.email}
@@ -182,7 +186,7 @@ const FirebaseForm = () => {
             />
 
             <TextField
-              label="Phone Number"
+              label={contact.formFields.phone}
               name="phone"
               value={formData.phone}
               onChange={handleChange}
@@ -199,7 +203,7 @@ const FirebaseForm = () => {
 
             <TextField
               select
-              label="Unit Preference"
+              label={contact.formFields.unitPreference}
               name="unitPreference"
               value={formData.unitPreference}
               onChange={handleChange}
@@ -213,6 +217,11 @@ const FirebaseForm = () => {
                 },
               }}
             >
+              {contact.unitOptions.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
               <MenuItem value="1-bed">1 Bedroom</MenuItem>
               <MenuItem value="2-bed">2 Bedrooms</MenuItem>
               <MenuItem value="3-bed">3 Bedrooms</MenuItem>
@@ -236,7 +245,7 @@ const FirebaseForm = () => {
               {isSubmitting ? (
                 <CircularProgress size={24} sx={{ color: "#1C6658" }} />
               ) : (
-                "Submit"
+                contact.submitButtonText
               )}
             </Button>
           </Stack>
@@ -261,4 +270,4 @@ const FirebaseForm = () => {
   );
 };
 
-export default FirebaseForm;
+export default ContactForm;

@@ -1,5 +1,6 @@
 import typography from "@/utils/styles";
 import { Stack, Typography, Box } from "@mui/material";
+import { gallery } from "@/utils/siteConfig";
 
 export default function Heading() {
   return (
@@ -7,11 +8,8 @@ export default function Heading() {
       <Typography sx={typography.medium16}> (02)</Typography>
 
       <Stack spacing={1}>
-        <Typography sx={typography.medium16}>Gallery</Typography>
-
-        <Typography sx={typography.regular28}>
-          Detail and Sophistication in every element
-        </Typography>
+        <Typography sx={typography.medium16}>{gallery.title}</Typography>
+        <Typography sx={typography.regular28}>{gallery.subtitle}</Typography>
       </Stack>
     </Stack>
   );

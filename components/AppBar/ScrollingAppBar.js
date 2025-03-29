@@ -1,14 +1,15 @@
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
+import { header, siteMetadata } from "@/utils/siteConfig";
 
 export default function ScrollingAppBar() {
   return (
     <AppBar
       position="sticky"
-      sx={{ backgroundColor: "#1C6658", overflow: "hidden" }}
+      sx={{ backgroundColor: siteMetadata.themeColor, overflow: "hidden" }}
     >
       <Toolbar>
         <Box sx={{ mr: 3 }}>
-          <Typography>Subarashi</Typography>
+          <Typography>{header.companyName}</Typography>
         </Box>
         <Box
           sx={{
@@ -29,11 +30,10 @@ export default function ScrollingAppBar() {
               animation: "scrollText 15s linear infinite",
             }}
           >
-            The Element at Sobha One • The Element at Sobha One • The Element at
-            Sobha One • The Element at Sobha One • The Element at Sobha One •
-            The Element at Sobha One • The Element at Sobha One • The Element at
-            Sobha One • The Element at Sobha One • The Element at Sobha One •
-            The Element at Sobha One • The Element at Sobha One •
+            {`${header.projectName} • ${header.projectName} • ${header.projectName} • 
+            ${header.projectName} • ${header.projectName} • ${header.projectName} • 
+            ${header.projectName} • ${header.projectName} • ${header.projectName} • 
+            ${header.projectName} • ${header.projectName} • ${header.projectName} •`}
           </Typography>
         </Box>
       </Toolbar>

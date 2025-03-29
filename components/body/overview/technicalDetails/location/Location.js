@@ -15,6 +15,7 @@ import Description from "./Description";
 import Heading from "./Heading";
 import typography from "@/utils/styles";
 import HeroImage from "@/components/body/hero/HeroImage";
+import { location } from "@/utils/siteConfig";
 
 export default function Location({ masterPlan }) {
   return (

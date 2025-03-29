@@ -10,47 +10,22 @@ import {
   Pets,
   Restaurant,
 } from "@mui/icons-material";
+import { features } from "@/utils/siteConfig";
+
+// Map of icon names to their components
+const iconMap = {
+  SportsGolf: <SportsGolf sx={{ fontSize: 40 }} />,
+  Pool: <Pool sx={{ fontSize: 40 }} />,
+  FitnessCenter: <FitnessCenter sx={{ fontSize: 40 }} />,
+  Laptop: <Laptop sx={{ fontSize: 40 }} />,
+  Theaters: <Theaters sx={{ fontSize: 40 }} />,
+  Park: <Park sx={{ fontSize: 40 }} />,
+  SelfImprovement: <SelfImprovement sx={{ fontSize: 40 }} />,
+  Pets: <Pets sx={{ fontSize: 40 }} />,
+  Restaurant: <Restaurant sx={{ fontSize: 40 }} />,
+};
 
 export default function FeaturesList() {
-  const amenities = [
-    {
-      icon: <SportsGolf sx={{ fontSize: 40 }} />,
-      title: "18-HOLE PITCH & PUTT GOLF COURSE",
-    },
-    {
-      icon: <Pool sx={{ fontSize: 40 }} />,
-      title: "INFINITY-EDGE SWIMMING POOLS",
-    },
-    {
-      icon: <FitnessCenter sx={{ fontSize: 40 }} />,
-      title: "OUTDOOR & INDOOR FITNESS CENTERS",
-    },
-    {
-      icon: <Laptop sx={{ fontSize: 40 }} />,
-      title: "CO-WORKING SPACES & BUSINESS LOUNGE",
-    },
-    {
-      icon: <Theaters sx={{ fontSize: 40 }} />,
-      title: "PRIVATE CINEMA & VR GAMING ZONE",
-    },
-    {
-      icon: <Park sx={{ fontSize: 40 }} />,
-      title: "KIDS' PLAY AREAS & FAMILY PARKS",
-    },
-    {
-      icon: <SelfImprovement sx={{ fontSize: 40 }} />,
-      title: "YOGA, MEDITATION & WELLNESS SPACES",
-    },
-    {
-      icon: <Pets sx={{ fontSize: 40 }} />,
-      title: "PET-FRIENDLY ZONES & LANDSCAPED GARDENS",
-    },
-    {
-      icon: <Restaurant sx={{ fontSize: 40 }} />,
-      title: "RETAIL & DINING PROMENADE BY THE WATER",
-    },
-  ];
-
   return (
     <Box sx={{ py: 8, px: 4 }}>
       <Typography
@@ -62,11 +37,11 @@ export default function FeaturesList() {
           fontWeight: 500,
         }}
       >
-        EXCLUSIVE AMENITIES
+        {features.amenitiesTitle}
       </Typography>
 
       <Grid container spacing={4}>
-        {amenities.map((amenity, index) => (
+        {features.amenities.map((amenity, index) => (
           <Grid item xs={6} sm={4} md={3} key={index}>
             <Paper
               elevation={0}
@@ -90,7 +65,7 @@ export default function FeaturesList() {
                   mb: 2,
                 }}
               >
-                {amenity.icon}
+                {iconMap[amenity.iconName]}
               </Box>
               <Typography
                 variant="body2"
