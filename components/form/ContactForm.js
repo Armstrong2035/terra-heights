@@ -19,7 +19,7 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import { addTask } from "@/utils/clickupUtils";
+// import { addTask } from "@/utils/clickupUtils";
 
 // Initialize Firestore using the app instance
 const db = getFirestore(app);

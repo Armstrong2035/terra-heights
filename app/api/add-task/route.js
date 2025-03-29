@@ -16,7 +16,7 @@ export async function POST(req) {
     }
 
     const response = await fetch(
-      "https://api.clickup.com/api/v2/list/901806483420/task?custom_task_ids=false",
+      "https://api.clickup.com/api/v2/list/901805809992/task?custom_task_ids=false",
       {
         method: "POST",
         headers: {
