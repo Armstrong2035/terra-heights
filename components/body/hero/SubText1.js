@@ -4,7 +4,7 @@ import { hero } from "@/utils/siteConfig";
 
 export default function SubText1({ isDesktop }) {
   const scrollToForm = () => {
-    const form = document.getElementById("riverside-contact-form");
+    const form = document.getElementById("sobha-one-element-contact-form");
     if (form) {
       form.scrollIntoView({ behavior: "smooth" });
     }

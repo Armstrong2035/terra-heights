@@ -120,7 +120,7 @@ const ContactForm = () => {
 
   return (
     <Box
-      id="palm-jebel-ali-contact-form"
+      id="sobha-one-element-contact-form"
       sx={{
         display: "flex",
         justifyContent: "center",
@@ -217,11 +217,6 @@ const ContactForm = () => {
                 },
               }}
             >
-              {contact.unitOptions.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
               <MenuItem value="1-bed">1 Bedroom</MenuItem>
               <MenuItem value="2-bed">2 Bedrooms</MenuItem>
               <MenuItem value="3-bed">3 Bedrooms</MenuItem>
