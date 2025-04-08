@@ -3,20 +3,20 @@
 
 // Site Metadata
 const siteMetadata = {
-  title: "The Element at Sobha One",
+  title: "Terra Heights",
   description:
-    "Experience luxury residential living redefined at The Element, where urban sophistication meets natural harmony in Dubai. Features 1-4 bedroom units with panoramic views.",
+    "Terra Heights is a thoughtfully designed residential community just minutes from Expo City. Offering modern 1 and 2-bedroom apartments, this development combines sleek architecture with green open spaces. With a focus on connectivity, sustainability, and lifestyle, Terra Heights is perfect for those seeking a vibrant, well-balanced urban living experience.",
   keywords: [
-    "Sobha Realty",
-    "The Element",
+    "Emaar",
+    "Terra Heights",
     "Sobha One",
     "Dubai luxury apartments",
     "Dubai real estate",
-    "Ras Al Khor",
+    "Expo Living",
     "luxury residential",
     "Dubai property",
     "golf course view apartments",
-    "Dubai Creek view",
+    "Expo City",
   ],
   icons: {
     favicon:
@@ -29,61 +29,60 @@ const siteMetadata = {
 // Header & Footer
 const header = {
   companyName: "Subarashi",
-  projectName: "The Element at Sobha One",
+  projectName: "Emaar Terra Heights",
 };
 
 // Hero Section
 const hero = {
-  title: ["- The art of", "sophistication,", "made tangible."],
-  projectName: "The Element, Sobha One",
-  projectTypes: "1, 2, 3, and 5 bedroom apartments",
+  title: ["- Modern Living", "made to accommodate", "today, and tomorrow."],
+  projectName: "Terra Heights, Emaar",
+  projectTypes: "1 & 2 bedroom apartments",
   description:
-    "Welcome to The Element at Sobha One, an exclusive residential community offering breath-taking views, world-class amenities, and meticulously crafted homes. Inspired by the harmony of nature and urban sophistication, The Element is a sanctuary designed for those who seek elegance and tranquility.",
+    "Welcome to Terra Heights, an exclusive residential community offering breath-taking views, world-class amenities, and meticulously crafted homes. Inspired by the harmony of nature and urban sophistication, The Element is a sanctuary designed for those who seek elegance and tranquility.",
   ctaText: "Register Your Interest",
   heroImage:
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1920,dpr_auto/v1739812183/Image_7_rhskvt.png",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009068/TERRA_HEIGHTS_XL_BROCHURE-28_y4s08g.jpg",
 };
 
 // Location Section
 const location = {
   title: "Location",
-  subtitle: "Plug in and plug out when you like, (how you like)",
+  subtitle: "Prime Intersection with Seamless Connectivity",
   description:
-    "Strategically positioned within Sobha One, The Element ensures seamless connectivity while offering a serene retreat from the city's hustle. It's like being a double agent",
+    "Located within Expo Living, Terra Heights offers a unique blend of modern convenience and natural tranquility.",
   proximities: [
-    "5 Minutes – Dubai Creek Harbour",
-    "10 Minutes – Downtown Dubai & Business Bay",
-    "15 Minutes – Dubai International Airport",
-    "20 Minutes – Dubai Marina & The Palm Jumeirah",
+    "5 Minutes – Expo City Dubai",
+    "10 Minutes – Al Maktoum International Airport",
+    "15 Minutes – Dubai Marina",
+    "20 Minutes – Downtown Dubai",
   ],
   additionalInfo:
-    "Embrace the perfect balance of accessibility and exclusivity. Nestled within the twin interchanges on Ras Al Khor Road, this is a haven touched by the essence of the elements.",
-  startingPrice: "Starting Price: AED 1.49M",
+    "Its strategic position near major transportation hubs makes commuting effortless while ensuring residents remain connected to Dubai’s key attractions.",
+  startingPrice: "Starting Price: AED 1.4M",
   masterPlan:
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1600,dpr_auto/v1739877645/Image_8_iyjper.png",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744090334/Terra_Heights_page-0006_iakn7k.jpg",
   apartmentDetails: [
-    { label: "Unit Types", value: "1, 2, 3 & 4 Bedrooms" },
-    { label: "Area Range", value: "690 - 1,331 sq.ft" },
-    { label: "Handover Date", value: "Q2 2029" },
-    { label: "Payment Plan", value: "70/30" },
-    { label: "Deposit Required", value: "20%" },
+    { label: "Unit Types", value: "1 & 2 Bedrooms" },
+    { label: "Area Range", value: "749 - 1,118 sq.ft" },
+    { label: "Handover Date", value: "2028" },
+    { label: "Payment Plan", value: "Secure your home with just 10% down, followed by easy installments during construction, and 30% on handover in 2028." },
+    /*{ label: "Deposit Required", value: "20%" },*/
   ],
 };
 
 // Gallery Section
 const gallery = {
   title: "Gallery",
-  subtitle: "Detail and Sophistication in every element",
+  subtitle: "All the dots connect at Terra Heights",
   images: [
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812368/Image_17_uijjge.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812345/Image_14_z1k4zk.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812176/Image_6_jeo8hz.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812174/Image_3_t18f2j.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812370/Image_15_h3tqqe.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812166/Image_4_gfo9g1.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812167/Image_10_vnj8dm.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812174/Image_2_jcasuw.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1200,dpr_auto/v1739812348/Image_16_jtzocq.png",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009072/TERRA_HEIGHTS_XL_BROCHURE-35_wbzaqa.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009069/TERRA_HEIGHTS_XL_BROCHURE-18_nlibic.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009071/TERRA_HEIGHTS_XL_BROCHURE-32_aewqhq.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009070/TERRA_HEIGHTS_XL_BROCHURE-11_ufxwtz.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009069/TERRA_HEIGHTS_XL_BROCHURE-34_dj4urv.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009066/TERRA_HEIGHTS_XL_BROCHURE-23_dbn0o3.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009067/TERRA_HEIGHTS_XL_BROCHURE-13_j6nufi.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744009060/TERRA_HEIGHTS_XL_BROCHURE-7_xzpy4a.jpg",
   ],
 };
 
@@ -91,64 +90,64 @@ const gallery = {
 const floorPlans = {
   title: "Floor Plans",
   subtitle:
-    "Choose from an exquisite selection of 1 to 4-bedroom residences, each offering a unique blend of luxury and comfort.",
+    "Detailed layouts for 1 & 2-bedroom apartments",
   additionalText:
     "Open spaces, natural light, and a seamless blend of indoor and outdoor living create a home that feels like a retreat.",
   images: [
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1400,dpr_auto/v1739877699/3_-_TYPE_A_gbtlwi.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1400,dpr_auto/v1739877698/4_-_TYPE_A_ekjjqw.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1400,dpr_auto/v1739877699/1_-_TYPE_A_pjuhx2.png",
-    "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_1400,dpr_auto/v1739877697/2_-_TYPE_B_z5w7a1.png",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744091057/1_Bed_peughe.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744091057/2_Bed_eqnyp4.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744091057/1_Bed_peughe.jpg",
+    "https://res.cloudinary.com/dulafqaoq/image/upload/v1744091057/2_Bed_eqnyp4.jpg",
   ],
   bedroomTypes: [
     { id: "1bed", label: "1 Bedroom", imageIndex: 2 },
     { id: "2bed", label: "2 Bedrooms", imageIndex: 3 },
-    { id: "3bed", label: "3 Bedrooms", imageIndex: 0 },
-    { id: "4bed", label: "4 Bedrooms", imageIndex: 1 },
+    /* { id: "3bed", label: "3 Bedrooms", imageIndex: 0 },
+    { id: "4bed", label: "4 Bedrooms", imageIndex: 1 }, */
   ],
 };
 
 // Features/Amenities Section
 const features = {
   title: "Features",
-  subtitle: "Finest Details and Luxurious Amenities",
+  subtitle: " A Community Built for Relaxation and Recreation",
   amenitiesTitle: "EXCLUSIVE AMENITIES",
   amenities: [
     {
       iconName: "SportsGolf",
-      title: "18-HOLE PITCH & PUTT GOLF COURSE",
+      title: "EXCITING MINI GOLF AREA",
     },
     {
       iconName: "Pool",
-      title: "INFINITY-EDGE SWIMMING POOLS",
+      title: "ADULT AND KIDS POOLS",
     },
     {
       iconName: "FitnessCenter",
-      title: "OUTDOOR & INDOOR FITNESS CENTERS",
+      title: "WELL-EQUIPPED GYM",
     },
     {
       iconName: "Laptop",
-      title: "CO-WORKING SPACES & BUSINESS LOUNGE",
+      title: "MULTIPURPOSE ROOMS",
     },
-    {
+    /*{
       iconName: "Theaters",
       title: "PRIVATE CINEMA & VR GAMING ZONE",
-    },
+    }, */
     {
       iconName: "Park",
-      title: "KIDS' PLAY AREAS & FAMILY PARKS",
+      title: "OUTDOOR PLAY SPACES FOR CHILDREN",
     },
     {
       iconName: "SelfImprovement",
-      title: "YOGA, MEDITATION & WELLNESS SPACES",
+      title: "YOGA DECK TO UNWIND AND RECHARGE",
     },
-    {
+    /* {
       iconName: "Pets",
       title: "PET-FRIENDLY ZONES & LANDSCAPED GARDENS",
-    },
+    }, */
     {
       iconName: "Restaurant",
-      title: "RETAIL & DINING PROMENADE BY THE WATER",
+      title: "BARBECUE SPOTS FOR SOCIAL EVENINGS",
     },
   ],
 };

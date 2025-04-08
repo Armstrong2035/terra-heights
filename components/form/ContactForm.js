@@ -219,8 +219,8 @@ const ContactForm = () => {
             >
               <MenuItem value="1-bed">1 Bedroom</MenuItem>
               <MenuItem value="2-bed">2 Bedrooms</MenuItem>
-              <MenuItem value="3-bed">3 Bedrooms</MenuItem>
-              <MenuItem value="4-bed">4 Bedrooms</MenuItem>
+              {/* <MenuItem value="3-bed">3 Bedrooms</MenuItem>
+              <MenuItem value="4-bed">4 Bedrooms</MenuItem> */}
             </TextField>
 
             <Button
