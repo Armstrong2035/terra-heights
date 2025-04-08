@@ -61,7 +61,7 @@ const ContactForm = () => {
         project: contact.formConfig.projectName,
         status: "new",
         source: "website",
-        project: "Palm Jebel Ali Villas",
+        project: "Emaar Terra Heights",
       });
 
       //add form data to clickup
