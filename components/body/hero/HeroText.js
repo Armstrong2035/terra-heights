@@ -1,6 +1,7 @@
 import { Typography, Box, Stack } from "@mui/material";
-import { mdTypography, typographyStyles } from "@/utils/styles";
+import { mdTypography } from "@/utils/styles";
 import { hero } from "@/utils/siteConfig";
+import typographyStyles from "@/app/styles";
 
 export default function HeroText({ isDesktop }) {
   const style = {
@@ -15,7 +16,7 @@ export default function HeroText({ isDesktop }) {
   return (
     <Stack>
       {hero.title.map((line, index) => (
-        <Typography key={index} sx={isDesktop ? style : mdTypography.heading48}>
+        <Typography key={index} sx={isDesktop ? {...typographyStyles.heroTitle, fontSize: "70px", lineHeight: "100px", fontWeight: 500} : mdTypography.heading48}>
           {line}
         </Typography>
       ))}

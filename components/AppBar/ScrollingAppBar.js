@@ -1,5 +1,6 @@
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import { header, siteMetadata } from "@/utils/siteConfig";
+import typographyStyles from "@/app/styles";
 
 export default function ScrollingAppBar() {
   return (
@@ -28,6 +29,8 @@ export default function ScrollingAppBar() {
               display: "inline-block",
               whiteSpace: "nowrap",
               animation: "scrollText 15s linear infinite",
+              ...typographyStyles.bodyMedium,
+              fontSize: "20px",
             }}
           >
             {`${header.projectName} • ${header.projectName} • ${header.projectName} • 

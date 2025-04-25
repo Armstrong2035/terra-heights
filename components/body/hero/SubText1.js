@@ -1,6 +1,7 @@
 import { mdTypography } from "@/utils/styles";
 import { Typography, Stack, Box, Button } from "@mui/material";
 import { hero } from "@/utils/siteConfig";
+import typographyStyles from "@/app/styles";
 
 export default function SubText1({ isDesktop }) {
   const scrollToForm = () => {
@@ -31,14 +32,14 @@ export default function SubText1({ isDesktop }) {
   return (
     <Stack spacing={isDesktop ? 10 : 3} justifyContent={"center"}>
       <Box>
-        <Typography sx={isDesktop ? style1.heading : mdTypography.heading32}>
+        <Typography sx={isDesktop ? {...typographyStyles.bodyMedium, fontSize: "28px"} : mdTypography.heading32}>
           {hero.projectName}
         </Typography>
-        <Typography sx={style1.body}>{hero.projectTypes}</Typography>
+        <Typography sx={{...typographyStyles.bodyMedium}}>{hero.projectTypes}</Typography>
       </Box>
 
       <Box>
-        <Typography sx={isDesktop ? style1.body : mdTypography.body16Gray}>
+        <Typography sx={isDesktop ? {...typographyStyles.bodyMedium, color: "#525252", fontSize: "18px"} : mdTypography.body16Gray}>
           {hero.description}
         </Typography>
 

@@ -8,27 +8,28 @@ import {
   Stack,
 } from "@mui/material";
 import { location } from "@/utils/siteConfig";
+import typographyStyles from "@/app/styles";
 
 export default function Description() {
   return (
     <Stack spacing={10} sx={{ height: "100%" }}>
       <Stack spacing={3}>
-        <Typography sx={typography.medium28}>{location.description}</Typography>
+        <Typography sx={{...typographyStyles.bodyMedium, fontSize: "20px"}}>{location.description}</Typography>
 
         <List>
           {location.proximities.map((item, index) => (
             <ListItem key={index}>
-              <Typography sx={typography.regular16}>{item}</Typography>
+              <Typography sx={{...typographyStyles.bodyMedium, fontSize: "16px"}}>{item}</Typography>
             </ListItem>
           ))}
         </List>
 
-        <Typography sx={{ ...typography.medium28, fontSize: "18px" }}>
+        <Typography sx={{ ...typographyStyles.bodyMedium, fontSize: "20px" }}>
           {location.additionalInfo}
         </Typography>
       </Stack>
 
-      <Typography sx={typography.regular48}>
+      <Typography sx={{...typographyStyles.bodyMedium, fontSize: "18px"}}>
         {location.startingPrice}
       </Typography>
     </Stack>
