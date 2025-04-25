@@ -23,7 +23,7 @@ const siteMetadata = {
       "https://res.cloudinary.com/dulafqaoq/image/upload/t_Favicon/v1739530384/SUBRASHI_2_nex463.png",
   },
   themeColor: "#1C6658",
-  backgroundColor: "#FCFFF3",
+  backgroundColor: "#ffffff",
 };
 
 // Header & Footer

@@ -1,6 +1,7 @@
 import { Manrope } from "next/font/google";
 import Script from "next/script";
 import { siteMetadata, analytics } from "@/utils/siteConfig";
+import localFont from 'next/font/local';
 
 export const metadata = {
   title: siteMetadata.title,
@@ -22,9 +23,23 @@ const manrope = Manrope({
   display: "swap",
 });
 
+export const Degular = localFont({
+  src: [
+    {
+      path: '../public/fonts/jugular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+
+  ],
+  display: 'swap',
+  variable: '--font-degular',
+
+});
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={manrope.className}>
+    <html lang="en" className={Degular.className}>
       <head>
         <noscript>
           <img
